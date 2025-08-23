@@ -20,7 +20,7 @@ export default function Home({navigation}) {
                 <Text style={styles.text}>Previous Tests</Text>
             </TouchableOpacity>
         
-            <TouchableOpacity style={styles.start}>
+            <TouchableOpacity style={styles.start} onPress={()=>navigation.navigate('TypingScreen')}>
                 <Image source={Start} style={{width:100,height:100,margin:20}} />
                 <Text style={styles.text}>Start</Text>
             </TouchableOpacity>
