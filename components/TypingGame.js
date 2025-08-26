@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";   // ✅ add useEffect
 import { StyleSheet, View, Text, TextInput, KeyboardAvoidingView, ScrollView, Platform } from "react-native";
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
-export default function TypingGame({ onComplete, triggerEnd }) {   // ✅ add triggerEnd here
+export default function TypingGame({ onComplete, triggerEnd,duration }) {   // ✅ add triggerEnd here
 
   const wordsarray = {
     1: "The quick brown fox jumps over the lazy dog",
@@ -29,22 +29,32 @@ export default function TypingGame({ onComplete, triggerEnd }) {   // ✅ add tr
     return typedWords[index] === word ? "correct" : "incorrect";
   });
 
-  const handleEndGame = () => {
-    const gameEnded = {
-      usertyped: userInput,
-      target: target,
-      correctWords: wordStatus.filter(status => status === "correct").length,
-      totalWords: targetWords.length,
-    };
-    onComplete(gameEnded);  
-  };
+
+  useEffect(() => {   
+  if (triggerEnd) { 
+    const correctWords = wordStatus.filter(status => status === "correct").length;
+    const totalWords = targetWords.length;
+    const accuracy = totalWords === 0 ? 0 : (correctWords / totalWords) * 100;
+
+    // ✅ WPM calculation using duration
+    const minutes = duration / 60;
+    const wpm = minutes > 0 ? (correctWords / minutes) : 0;
+
+    onComplete({
+      target,
+      usertyped: userInput,   
+      correctWords,
+      totalWords,
+      accuracy: accuracy.toFixed(2),
+      wpm: wpm.toFixed(2),   // ✅ new field
+    });
+  }
+}, [triggerEnd]); 
+
 
  
-  useEffect(() => {
-    if (triggerEnd) {
-      handleEndGame();
-    }
-  }, [triggerEnd]);
+ 
+  
 
   return (
     <KeyboardAvoidingView
