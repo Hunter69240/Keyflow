@@ -2,7 +2,7 @@ import { StyleSheet,Text,View } from "react-native";
 
 export default function ResultScreen({data}) {
    if(data){
-      fetch('{Your Url Here}',{
+      fetch('{Your API Url}',{
          method:'POST',
          headers:{
             'Content-Type':'application/json'
