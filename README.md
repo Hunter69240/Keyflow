@@ -66,7 +66,7 @@ A **React Native Typing Speed Test App** that helps users practice typing, measu
 
 # 📸 Screenshots
 
-    ![Image](https://github.com/user-attachments/assets/16e7249a-e8a5-4bbb-9f97-fd98967d94ff)
+    ![Home](https://github.com/Hunter69240/Keyflow/blob/42364b6691a8bc4ea503155de80c9b19228e67ee/assets/Images/Home.jpg)
 
 
 # ✨ Future Improvements
@@ -84,3 +84,4 @@ A **React Native Typing Speed Test App** that helps users practice typing, measu
  - Aadish Somayaji
 
  - GitHub: [@Hunter69240](https://github.com/Hunter69240)
+
