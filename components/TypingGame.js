@@ -36,25 +36,19 @@ export default function TypingGame({ onComplete, triggerEnd,duration }) {   // â
     const totalWords = targetWords.length;
     const accuracy = totalWords === 0 ? 0 : (correctWords / totalWords) * 100;
 
-    // âœ… WPM calculation using duration
     const minutes = duration / 60;
     const wpm = minutes > 0 ? (correctWords / minutes) : 0;
 
     onComplete({
       target,
-      usertyped: userInput,   
+      userTyped: userInput,   
       correctWords,
       totalWords,
       accuracy: accuracy.toFixed(2),
-      wpm: wpm.toFixed(2),   // âœ… new field
+      wpm: wpm.toFixed(2),   
     });
   }
 }, [triggerEnd]); 
-
-
- 
- 
-  
 
   return (
     <KeyboardAvoidingView
@@ -64,7 +58,7 @@ export default function TypingGame({ onComplete, triggerEnd,duration }) {   // â
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
 
-          {/* Target sentence with word colors */}
+          
           <Text style={styles.targetSentence}>
             {targetWords.map((word, i) => (
               <Text
@@ -81,7 +75,7 @@ export default function TypingGame({ onComplete, triggerEnd,duration }) {   // â
             ))}
           </Text>
 
-          {/* Typing input */}
+          
           <TextInput
             style={styles.input}
             multiline

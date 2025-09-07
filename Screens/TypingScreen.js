@@ -36,8 +36,7 @@ export default function TypingScreen() {
         <Header style={styles.header} />
          
          <View style={styles.holder}>
-
-                  
+  
                  
                  <CountdownCircleTimer
                   key={key}

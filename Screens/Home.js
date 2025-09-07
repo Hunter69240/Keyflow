@@ -1,11 +1,15 @@
-
+import { use, useEffect } from "react";
 import RecentTests from "../assets/Images/RecentTests.png";
 import Start from "../assets/Images/Start.png";
 import TypingImage from "../assets/Images/TypingImage.png";
 
 import { StyleSheet,Text,View,Image,TouchableOpacity} from "react-native";
 
+
 export default function Home({navigation}) {
+
+    
+
     return (
       <View style={styles.container}>
         <Image source={TypingImage} style={{width:200,height:200,marginBottom:20}} />
@@ -15,7 +19,7 @@ export default function Home({navigation}) {
 
         <View style={styles.controls}>
 
-            <TouchableOpacity style={styles.previoustests}>
+            <TouchableOpacity style={styles.previoustests} onPress={()=>navigation.navigate('PreviousTest')}>
                 <Image source={RecentTests} style={{width:100,height:100,margin:20}} />
                 <Text style={styles.text}>Previous Tests</Text>
             </TouchableOpacity>
